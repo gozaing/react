@@ -48,9 +48,18 @@
         },
       });
 
+/*
       ReactDOM.render(
         React.createElement(TextAreaCounter,{
           defaultValue: "ボブ",
+        }),
+        document.getElementById("app")
+      );
+*/
+
+      var myTextAreaCounter = ReactDOM.render(
+        React.createElement(TextAreaCounter, {
+          defaultValue: "hello",
         }),
         document.getElementById("app")
       );
