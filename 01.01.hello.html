@@ -18,8 +18,11 @@
         }
       });
 
+      var ComponentFactory = React.createFactory(Component);
+
       ReactDOM.render(
-        React.createElement(Component),
+        // React.createElement(Component),
+        ComponentFactory(),
         document.getElementById("app")
       );
     </script>
