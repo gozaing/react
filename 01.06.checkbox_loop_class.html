@@ -20,18 +20,40 @@
             [1, 31, 32, 33, 34]
           ];
 
+/*
+      var sample = React.createClass({
+
+        render: function() {
+          return (
+            React.DOM.div(null,
+              this.props.list.map(function(content, index) {
+                content.map(function(cell) {
+                  return React.DOM.div(null, '11');
+                })
+              })
+            )
+          )
+        },
+      });
+      */
+
       var sample = React.createClass({
 
         render: function() {
           return (
             React.DOM.div(null,
               this.props.list.map(function(content) {
-                return React.DOM.span(null, content);
+                content.map(function(test) {
+                  console.log(test);
+                  return React.DOM.div(null, test);
+                })
               })
             )
           )
         },
       });
+
+
 
       ReactDOM.render (
         React.createElement(sample, {
