@@ -67,7 +67,7 @@
         renderLine: function(number){
           var lines = [];
           for(var i=0; i < number; i++){
-            lines.push(<li>{number}</li>)
+            lines.push(<div>{number}<span><input type="checkbox"></input></span></div>)
           }
           return lines;
         },
