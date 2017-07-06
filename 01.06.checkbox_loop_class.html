@@ -1,0 +1,46 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Text React</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <!-- app is here -->
+    <div>
+      <div id="app">
+    </div>
+
+    <script src="react/build/react.js"></script>
+    <script src="react/build/react-dom.js"></script>
+
+    <script>
+      var ary = [
+            [1, 11, 12, 13, 14],
+            [2, 21, 22, 23, 24],
+            [1, 31, 32, 33, 34]
+          ];
+
+      var sample = React.createClass({
+
+        render: function() {
+          return (
+            React.DOM.div(null,
+              this.props.list.map(function(content) {
+                return React.DOM.span(null, content);
+              })
+            )
+          )
+        },
+      });
+
+      ReactDOM.render (
+        React.createElement(sample, {
+          list: ary,
+        }),
+        document.getElementById("app")
+      );
+
+    </script>
+  </body>
+</html>
+
