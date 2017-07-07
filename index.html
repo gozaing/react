@@ -1,0 +1,94 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Text React</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div>
+      <div id="app">
+    </div>
+
+    <script src="react/build/react.js"></script>
+    <script src="react/build/react-dom.js"></script>
+
+    <script>
+    var pattern = [
+      ['00000000000000000000000000000000000000'],
+      ['00011111111110000011000001111111111000'],
+      ['00011111111110000011000001111111111000'],
+      ['00011000000110000011000001100000011000'],
+      ['00011000000110000011000001100000011000'],
+      ['00011000000110000011000001100000011000'],
+      ['00011000000110000011000001100000011000'],
+      ['00011000000110000011000001100000011000'],
+      ['00011000000110000011000001100000011000'],
+      ['00011111111110000011000001111111111000'],
+      ['00011111111110000011000001111111111000'],
+      ['00000000000110000011000000000000011000'],
+      ['00000000000110000011000000000000011000'],
+      ['00000000000110000011000000000000011000'],
+      ['00000000000110000011000000000000011000'],
+      ['00000000000110000011000000000000011000'],
+      ['00000000000110000011000000000000011000'],
+      ['00000000000110000011000000000000011000'],
+      ['00000000000110000011000000000000011000'],
+      ['00000000000110000011000000000000011000'],
+      ['00000000000110000011000000000000011000'],
+      ['00000000000110000011000000000000011000'],
+      ['00000000000110000011000000000000011000'],
+      ['00000000000110000011000000000000011000'],
+      ['00000000000110000011000000000000011000'],
+      ['00000000000000000000000000000000000000'],
+    ];
+
+      var arr = [];
+      pattern.map(function(a) {
+        // array -> string -> split
+        var a_str = a.toString().split('');
+        var arr_row = [];
+        for (var i=0; i<a_str.length; i++) {
+          arr_row.push(a_str[i]);
+        }
+        arr.push(arr_row);
+      });
+
+      var checkboxes = React.createClass({
+        render: function() {
+          return (
+            React.DOM.div(null,
+              this.props.list.map(function(row) {
+                return React.DOM.div({style: {'marginTop': '-5px'}},
+                  row.map(function(cell) {
+                    if (cell==='1') {
+                      return React.createElement('input', {
+                        type: 'checkbox',
+                        defaultChecked: true,
+                        style: {'marginRight': '1px','marginLeft': '1px'}
+                      })
+                    } else {
+                      return React.createElement('input', {
+                        type: 'checkbox',
+                        defaultChecked: false,
+                        style: {'marginRight': '1px','marginLeft': '1px'}
+                      })
+                    }
+                  })
+                )
+              })
+            )
+          )
+        },
+      });
+
+      ReactDOM.render (
+        React.createElement(checkboxes, {
+          list: arr,
+        }),
+        document.getElementById("app")
+      );
+
+    </script>
+  </body>
+</html>
+
