@@ -9,14 +9,18 @@
       <!-- app is here -->
     </div>
 
-    <script src='react/build/react.js'></script>
-    <script src='react/build/react-dom.js'></script>
+    <script src="react/build/react.js"></script>
+    <script src="react/build/react-dom.js"></script>
+    <script src="babel/browser.js"></script>
 
-    <script>
+    <script type="text/babel">
       ReactDOM.render(
-        React.DOM.h1(null, 'Hello React World'),
+        <h1 id="id-hello">
+          <span>Hell<em>o</em></span> World!
+        </h1>,
         document.getElementById('app')
       );
+
     </script>
 
   </body>
