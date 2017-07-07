@@ -23,10 +23,10 @@
         render: function() {
           return (
             React.DOM.div(null,
-              this.props.list.map(function(content) {
+              this.props.list.map(function(row) {
                 return React.DOM.div({style: {'marginTop': '-5px'}},
-                  content.map(function(test) {
-                    if (test===1) {
+                  row.map(function(cell) {
+                    if (cell===1) {
                       return React.createElement('input', {
                         type: 'checkbox',
                         defaultChecked: true,
