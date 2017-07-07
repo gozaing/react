@@ -43,17 +43,16 @@
           return (
             React.DOM.div(null,
               this.props.list.map(function(content) {
-                content.map(function(test) {
-                  console.log(test);
-                  return React.DOM.div(null, test);
-                })
+                return React.DOM.div(null,
+                  content.map(function(test) {
+                    return React.DOM.div(null, test);
+                  })
+                )
               })
             )
           )
         },
       });
-
-
 
       ReactDOM.render (
         React.createElement(sample, {
