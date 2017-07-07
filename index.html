@@ -1,11 +1,14 @@
 <!DOCTYPE>
 <html>
   <head>
-    <title>Text Counter</title>
+    <title>Multi Text Counter</title>
     <meta charset="utf-8">
   </head>
   <body>
-    <div id="app">
+    <div id="app1">
+      <!-- app is here -->
+    </div>
+    <div id="app2">
       <!-- app is here -->
     </div>
 
@@ -51,13 +54,25 @@
         },
       });
 
+      /* Factory メソッドでcreateClass を行っておく */
+      var ComponentFactory = React.createFactory(TextAreaCounter);
+
       /* DOMに作成したコンポーネントを挿入 */
-      var myTextAreaCounter = ReactDOM.render(
-        React.createElement(TextAreaCounter, {
-          defaultValue: "hello",
+      ReactDOM.render(
+        ComponentFactory({
+          defaultValue: "Hello1",
         }),
-        document.getElementById("app")
+        document.getElementById("app1")
       );
+
+      /* 2個目も同じ */
+      ReactDOM.render(
+        ComponentFactory({
+          defaultValue: "Hola1",
+        }),
+        document.getElementById("app2")
+      );
+
     </script>
 
   </body>
