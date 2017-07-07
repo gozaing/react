@@ -1,26 +1,64 @@
 <!DOCTYPE>
 <html>
   <head>
-    <title>Hello React World</title>
-    <meta charset='utf-8'>
+    <title>Text Counter</title>
+    <meta charset="utf-8">
   </head>
   <body>
-    <div id='app'>
+    <div id="app">
       <!-- app is here -->
     </div>
 
-    <script src='react/build/react.js'></script>
-    <script src='react/build/react-dom.js'></script>
+    <script src="react/build/react.js"></script>
+    <script src="react/build/react-dom.js"></script>
 
     <script>
-      ReactDOM.render(
-        React.DOM.h1(null, 'Hello React World'),
-        document.getElementById('app')
+
+      /* コンポーネント（テキストエリアとカウンター）*/
+      var TextAreaCounter = React.createClass({
+        propTypes: {
+          defaultValue: React.PropTypes.string,
+        },
+
+        getDefaultProps: function() {
+          return {
+            text: '',
+          };
+        },
+
+        /* 常に新しいデータを取得する */
+        getInitialState: function() {
+          return {
+            text: this.props.defaultValue,
+          };
+        },
+
+        /* イベントリスナー */
+        _textChange: function(ev) {
+          this.setState({
+            text: ev.target.value,
+          });
+        },
+
+        render: function() {
+          return React.DOM.div(null,
+            React.DOM.textarea({
+              value: this.state.text,
+              onChange: this._textChange,
+            }),
+            React.DOM.h3(null, this.state.text.length)
+          );
+        },
+      });
+
+      /* DOMに作成したコンポーネントを挿入 */
+      var myTextAreaCounter = ReactDOM.render(
+        React.createElement(TextAreaCounter, {
+          defaultValue: "hello",
+        }),
+        document.getElementById("app")
       );
     </script>
 
   </body>
 </html>
-
-
-
